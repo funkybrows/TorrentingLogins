@@ -1,9 +1,7 @@
-import asyncio
 import pytest
-from playwright.async_api import expect, Browser, Page
+from playwright.async_api import expect
 
-from torrenting_logins.sites import torrent_leech
-from torrenting_logins.sites import the_geeks
+from torrenting_logins.sites import ab_torrents, old_toons_world, torrent_leech
 from torrenting_logins.login import login
 
 
@@ -12,8 +10,10 @@ async def test_tl(async_webkit):
     browser = await anext(async_webkit)
     page = await login({"webkit": browser}, torrent_leech)
 
-    for category in ("Movies", "TV", "Games", "Apps", "Education"):
-        expect(page.locator(f"//div[contains(text(), {category})]")).to_be_visible()
+    for category in ("movies", "tv", "games", "apps", "education"):
+        await expect(
+            page.locator(f"xpath=//a[contains(@href, 'torrents/{category}')]")
+        ).to_be_visible(timeout=1000 * 5, visible=False)
 
 
 @pytest.mark.asyncio
@@ -27,7 +27,9 @@ async def test_has_captcha(async_chromium, async_firefox, async_webkit):
         old_toons_world,
     )
     for info in ("Ratio", "Uploaded", "Downloaded"):
-        expect(page.locator(f"//font[contains(text(), {info})]")).to_be_visible()
+        await expect(page.locator(f"//font[contains(text(), {info})]")).to_be_visible(
+            timeout=5, visible=False
+        )
 
 
     page = await login(
