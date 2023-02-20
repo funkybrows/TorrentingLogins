@@ -17,7 +17,19 @@ async def test_tl(async_webkit):
 
 
 @pytest.mark.asyncio
-async def test_needs_submit(async_chromium, async_firefox, async_webkit):
+async def test_has_captcha(async_chromium, async_firefox, async_webkit):
+    page = await login(
+        {
+            "chromium": await anext(async_chromium),
+            "firefox": await anext(async_firefox),
+            "webkit": await anext(async_webkit),
+        },
+        old_toons_world,
+    )
+    for info in ("Ratio", "Uploaded", "Downloaded"):
+        expect(page.locator(f"//font[contains(text(), {info})]")).to_be_visible()
+
+
     page = await login(
         {
             "chromium": await anext(async_chromium),
