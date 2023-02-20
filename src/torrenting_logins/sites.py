@@ -120,6 +120,25 @@ alpha_ratio = SiteConfig(
     },
 )
 
+cathode_ray_tube = SiteConfig(
+    "cathode-ray-tube",
+    "https://cathode-ray.tube/login",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["cathode-ray-tube"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["cathode-ray-tube"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
