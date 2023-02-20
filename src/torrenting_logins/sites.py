@@ -180,6 +180,27 @@ file_list = SiteConfig(
     },
 )
 
+the_geeks = SiteConfig(
+    "the-geeks",
+    "https://thegeeks.click",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["the-geeks"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["the-geeks"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+    captcha=True,
+)
+
+
 hd_torrents = SiteConfig(
     "hd-torrents",
     "https://hd-torrents.org",
