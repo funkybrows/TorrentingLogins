@@ -235,6 +235,25 @@ orpheus = SiteConfig(
     },
 )
 
+reel_flix = SiteConfig(
+    "reel-flix",
+    "https://reelflix.xyz",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["reel-flix"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["reel-flix"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//button[@type='submit']"],
+    },
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
