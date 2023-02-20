@@ -235,6 +235,25 @@ lst = SiteConfig(
     },
 )
 
+my_anonamouse = SiteConfig(
+    "my-anonamouse",
+    "https://myanonamouse.net",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='email']"],
+        "username": config["my-anonamouse"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["my-anonamouse"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+)
+
 orpheus = SiteConfig(
     "orpheus",
     "https://orpheus.network/login.php",
