@@ -82,6 +82,25 @@ class SiteConfig:
         self.browser = browser
 
 
+aither = SiteConfig(
+    "aither",
+    "https://aither.cc",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["aither"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["aither"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//button[@type='submit']"],
+    },
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
