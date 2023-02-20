@@ -197,6 +197,25 @@ hd_space = SiteConfig(
     browser="firefox",
 )
 
+lst = SiteConfig(
+    "lst",
+    "https://lst.gg",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["lst"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["lst"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//button[@type='submit']"],
+    },
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
