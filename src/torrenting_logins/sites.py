@@ -158,6 +158,25 @@ file_list = SiteConfig(
     },
 )
 
+hd_torrents = SiteConfig(
+    "hd-torrents",
+    "https://hd-torrents.org",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='uid']"],
+        "username": config["hd-torrents"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='pwd']"],
+        "password": config["hd-torrents"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
