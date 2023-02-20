@@ -315,6 +315,26 @@ my_anonamouse = SiteConfig(
     },
 )
 
+old_toons_world = SiteConfig(
+    "old-toons-world",
+    "https://oldtoons.world",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["old-toons-world"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["old-toons-world"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+    captcha=True,
+)
+
 orpheus = SiteConfig(
     "orpheus",
     "https://orpheus.network/login.php",
