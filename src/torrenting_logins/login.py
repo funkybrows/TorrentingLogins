@@ -14,5 +14,6 @@ async def login(browsers: Dict[str, Browser], site_config: List[SiteConfig]) -> 
             f"Click enter once you complete the user required parts of login for {site_config.name}"
         )
         input()
-    await site_config.submit.get_field(page).click()
+    if site_config.submit:
+        await site_config.submit.get_field(page).click()
     return page

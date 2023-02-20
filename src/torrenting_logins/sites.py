@@ -79,7 +79,10 @@ class SiteConfig:
         self.url = url
         self.user = self.User(**user_info)
         self.password = self.Password(**password_info)
-        self.submit = self.SiteConfigMember(**submit_info)
+        if submit_info:
+            self.submit = self.SiteConfigMember(**submit_info)
+        else:
+            self.submit = None
         self.captcha = captcha
         self.browser = browser
 
