@@ -122,6 +122,26 @@ alpha_ratio = SiteConfig(
     },
 )
 
+bit_sexy = SiteConfig(
+    "bit-sexy",
+    "https://bitsexy.org",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["bit-sexy"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["bit-sexy"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+    captcha=True,
+)
+
 cathode_ray_tube = SiteConfig(
     "cathode-ray-tube",
     "https://cathode-ray.tube/login",
