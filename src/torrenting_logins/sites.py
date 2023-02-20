@@ -80,3 +80,24 @@ class SiteConfig:
         self.password = self.Password(**password_info)
         self.submit = self.SiteConfigMember(**submit_info)
         self.browser = browser
+
+
+torrent_leech = SiteConfig(
+    "torrent-leech",
+    "https://torrentleech.org",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["torrent-leech"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["torrent-leech"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//button[@type='submit']"],
+    },
+    browser="webkit",
+)
