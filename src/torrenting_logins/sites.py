@@ -254,6 +254,26 @@ reel_flix = SiteConfig(
     },
 )
 
+sports_cult = SiteConfig(
+    "sports-cult",
+    "https://sportscult.org",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='uid']"],
+        "username": config["sports-cult"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='pwd']"],
+        "password": config["sports-cult"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+    browser="firefox",
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
