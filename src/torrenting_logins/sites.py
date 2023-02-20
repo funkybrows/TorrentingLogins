@@ -87,6 +87,21 @@ class SiteConfig:
         self.browser = browser
 
 
+ab_torrents = SiteConfig(
+    "ab-torrents",
+    "https://abtorrents.me",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["ab-torrents"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["ab-torrents"]["password"],
+    },
+    captcha=True,
+)
 aither = SiteConfig(
     "aither",
     "https://aither.cc",
