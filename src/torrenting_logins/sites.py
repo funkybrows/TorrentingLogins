@@ -197,6 +197,25 @@ hd_space = SiteConfig(
     browser="firefox",
 )
 
+learn_flakes = SiteConfig(
+    "learn-flakes",
+    "https://learnflakes.net",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='loginbox_membername']"],
+        "username": config["learn-flakes"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='loginbox_password']"],
+        "password": config["learn-flakes"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+)
+
 lst = SiteConfig(
     "lst",
     "https://lst.gg",
