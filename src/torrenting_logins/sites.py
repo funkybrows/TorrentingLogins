@@ -101,6 +101,25 @@ aither = SiteConfig(
     },
 )
 
+alpha_ratio = SiteConfig(
+    "alpha-ratio",
+    "https://alpharatio.cc",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["alpha-ratio"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["alpha-ratio"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
