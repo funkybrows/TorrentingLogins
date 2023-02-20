@@ -19,6 +19,19 @@ async def async_chromium(
 
 
 @pytest.fixture(scope="session")
+async def async_firefox(
+    browser_type_launch_args: Dict,
+) -> Generator[Browser, None, None]:
+    launch_options = {**browser_type_launch_args}
+    async with async_playwright() as pw:
+        browser = await pw.firefox.launch(**launch_options)
+        yield browser
+
+        await browser.close()
+    artifacts_folder.cleanup()
+
+
+@pytest.fixture(scope="session")
 async def async_webkit(
     browser_type_launch_args: Dict,
 ) -> Generator[Browser, None, None]:
