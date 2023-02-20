@@ -1,1 +1,5 @@
+#Config
 credentials.ini
+.vscode
+
+__pycache__
