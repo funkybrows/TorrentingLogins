@@ -72,6 +72,7 @@ class SiteConfig:
         user_info: Dict[str, Union[str, Iterable[Any], Dict[str, Any]]],
         password_info: Dict[str, Union[str, Iterable[Any], Dict[str, Any]]],
         submit_info: Dict[str, Union[str, Iterable[Any], Dict[str, Any]]] = None,
+        captcha: bool = False,
         browser: str = "chromium",
     ):
         self.name = name
@@ -79,6 +80,7 @@ class SiteConfig:
         self.user = self.User(**user_info)
         self.password = self.Password(**password_info)
         self.submit = self.SiteConfigMember(**submit_info)
+        self.captcha = captcha
         self.browser = browser
 
 
