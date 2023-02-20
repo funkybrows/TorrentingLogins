@@ -216,6 +216,25 @@ lst = SiteConfig(
     },
 )
 
+orpheus = SiteConfig(
+    "orpheus",
+    "https://orpheus.network/login.php",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["orpheus"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["orpheus"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
