@@ -177,6 +177,26 @@ hd_torrents = SiteConfig(
     },
 )
 
+hd_space = SiteConfig(
+    "hd-space",
+    "https://hd-space.org",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@id='want_username1']"],
+        "username": config["hd-space"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@id='want_password1']"],
+        "password": config["hd-space"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+    browser="firefox",
+)
+
 torrent_leech = SiteConfig(
     "torrent-leech",
     "https://torrentleech.org",
