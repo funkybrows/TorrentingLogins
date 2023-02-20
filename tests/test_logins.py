@@ -32,12 +32,22 @@ async def test_has_captcha(async_chromium, async_firefox, async_webkit):
         )
 
 
+@pytest.mark.asyncio
+async def test_no_submit(async_chromium, async_firefox, async_webkit):
+    print("CONFIRM NO VPN")
+    input()
     page = await login(
         {
             "chromium": await anext(async_chromium),
             "firefox": await anext(async_firefox),
             "webkit": await anext(async_webkit),
         },
-        the_geeks,
+        ab_torrents,
     )
-    await asyncio.sleep(1000)
+    for link in ("Torrents", "General"):
+        await expect(page.get_by_role("link", name=link, exact=True)).to_be_visible(
+            timeout=1000 * 5
+        )
+    await expect(page.get_by_role("link", name="Downloaded", exact=True)).to_be_visible(
+        timeout=1000 * 5, visible=False
+    )
