@@ -352,6 +352,7 @@ orpheus = SiteConfig(
         "selector_type": "xpath",
         "get_field_args": ["//input[@type='submit']"],
     },
+    browser="webkit",
 )
 
 reel_flix = SiteConfig(
