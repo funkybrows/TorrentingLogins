@@ -1,3 +1,4 @@
+import asyncio
 from typing import List, Dict
 from playwright.async_api import Browser, Page
 
@@ -17,3 +18,8 @@ async def login(browsers: Dict[str, Browser], site_config: List[SiteConfig]) -> 
     if site_config.submit:
         await site_config.submit.get_field(page).click()
     return page
+
+
+async def login_multi(browsers: Dict[str, Browser], sites: List[SiteConfig]):
+    for site in sites:
+        asyncio.create_task(login(browsers, site))
