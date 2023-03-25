@@ -140,6 +140,24 @@ alpha_ratio = SiteConfig(
     },
 )
 
+animez = SiteConfig(
+    "animeZ",
+    "https://animetorrents.me/login.php",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["animeZ"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["animeZ"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//button[@type='submit']"],
+    },
+)
 anthelion = SiteConfig(
     "anthelion",
     "https://anthelion.me/login.php",

@@ -5,6 +5,7 @@ from torrenting_logins.login import login_multi
 from torrenting_logins.sites import (
     aither,
     alpha_ratio,
+    animez,
     anthelion,
     ab_torrents,
     bit_sexy,
@@ -21,7 +22,6 @@ from torrenting_logins.sites import (
     reel_flix,
     sports_cult,
     torrent_leech,
-    SiteConfig,
 )
 
 default_timeout = 10**10
@@ -31,6 +31,7 @@ async def tv_movie(browsers):
     group = (
         aither,
         alpha_ratio,
+        animez,
         anthelion,
         cathode_ray_tube,
         file_list,
@@ -90,7 +91,7 @@ async def main(timeout=default_timeout):
         # asyncio.create_task(pn(browser_contexts))
         # asyncio.create_task(sports(browser_contexts))
         asyncio.create_task(tv_movie(browser_contexts))
-        #asyncio.create_task(books(browser_contexts))
+        # asyncio.create_task(books(browser_contexts))
         # asyncio.create_task(edu(browser_contexts))
         await asyncio.sleep(timeout)
 
