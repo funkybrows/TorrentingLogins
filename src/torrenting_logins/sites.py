@@ -140,6 +140,25 @@ alpha_ratio = SiteConfig(
     },
 )
 
+anthelion = SiteConfig(
+    "anthelion",
+    "https://anthelion.me/login.php",
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='username']"],
+        "username": config["anthelion"]["username"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@name='password']"],
+        "password": config["anthelion"]["password"],
+    },
+    {
+        "selector_type": "xpath",
+        "get_field_args": ["//input[@type='submit']"],
+    },
+)
+
 bit_sexy = SiteConfig(
     "bit-sexy",
     "https://bitsexy.org",

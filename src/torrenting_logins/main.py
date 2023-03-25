@@ -5,6 +5,7 @@ from torrenting_logins.login import login_multi
 from torrenting_logins.sites import (
     aither,
     alpha_ratio,
+    anthelion,
     ab_torrents,
     bit_sexy,
     cathode_ray_tube,
@@ -30,6 +31,7 @@ async def tv_movie(browsers):
     group = (
         aither,
         alpha_ratio,
+        anthelion,
         cathode_ray_tube,
         file_list,
         hd_torrents,
@@ -87,8 +89,8 @@ async def main(timeout=default_timeout):
         # asyncio.create_task(music(browser_contexts))
         # asyncio.create_task(pn(browser_contexts))
         # asyncio.create_task(sports(browser_contexts))
-        # asyncio.create_task(tv_movie(browser_contexts))
-        # asyncio.create_task(books(browser_contexts))
+        asyncio.create_task(tv_movie(browser_contexts))
+        #asyncio.create_task(books(browser_contexts))
         # asyncio.create_task(edu(browser_contexts))
         await asyncio.sleep(timeout)
 
